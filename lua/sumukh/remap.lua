@@ -10,7 +10,10 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 2910847609e499b28522760281e250217317ecca
 -- greatest remap ever
 vim.keymap.set("x", "<leader>p", [["_dP]])
 
