@@ -77,6 +77,16 @@ return require('packer').startup(function(use)
             {'L3MON4D3/LuaSnip'},
         }
     }
+    use {
+        "Exafunction/codeium.nvim",
+        requires = {
+            "nvim-lua/plenary.nvim",
+        },
+        config = function()
+            require("codeium").setup({
+            })
+        end
+    }
 
     if packer_bootstrap then
         require("packer").sync()
