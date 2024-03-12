@@ -15,7 +15,7 @@ local packer_bootstrap = ensure_packer() -- true if packer was just installed
 
 -- autocommand that reloads neovim and installs/updates/removes plugins
 -- when file is saved
-vim.cmd([[ 
+vim.cmd([[
 augroup packer_user_config
 autocmd!
 autocmd BufWritePost plugins-setup.lua source <afile> | PackerSync
@@ -39,7 +39,7 @@ return require('packer').startup(function(use)
     use {
         'nvim-telescope/telescope.nvim', tag = '0.1.5',
         -- or                            , branch = '0.1.x',
-        requires = { {'nvim-lua/plenary.nvim'} }
+        requires = { { 'nvim-lua/plenary.nvim' } }
     }
 
     use({
@@ -50,7 +50,7 @@ return require('packer').startup(function(use)
         end
     })
 
-    use("nvim-treesitter/nvim-treesitter", {run = ":TSUpdate"})
+    use("nvim-treesitter/nvim-treesitter", { run = ":TSUpdate" })
     use("nvim-treesitter/playground")
     use("theprimeagen/harpoon")
     use("theprimeagen/refactoring.nvim")
@@ -66,21 +66,24 @@ return require('packer').startup(function(use)
         branch = 'v3.x',
         requires = {
             --- Uncomment the two plugins below if you want to manage the language servers from neovim
-            {'williamboman/mason.nvim'},
-            {'williamboman/mason-lspconfig.nvim'},
+            { 'williamboman/mason.nvim' },
+            { 'williamboman/mason-lspconfig.nvim' },
 
             -- LSP Support
-            {'neovim/nvim-lspconfig'},
+            { 'neovim/nvim-lspconfig' },
             -- Autocompletion
-            {'hrsh7th/nvim-cmp'},
-            {'hrsh7th/cmp-nvim-lsp'},
-            {'L3MON4D3/LuaSnip'},
+            { 'hrsh7th/nvim-cmp' },
+            { 'hrsh7th/cmp-nvim-lsp' },
+            { 'L3MON4D3/LuaSnip' },
+            -- I just want to add cool icons
+            { 'onsails/lspkind.nvim' },
         }
     }
     use {
         "Exafunction/codeium.nvim",
         requires = {
             "nvim-lua/plenary.nvim",
+            "hrsh7th/nvim-cmp",
         },
         config = function()
             require("codeium").setup({
@@ -91,5 +94,4 @@ return require('packer').startup(function(use)
     if packer_bootstrap then
         require("packer").sync()
     end
-
 end)
