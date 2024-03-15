@@ -29,6 +29,17 @@ require('mason-lspconfig').setup({
     }
 })
 
+
+require'lspconfig'.gopls.setup{
+  capabilities = require('cmp_nvim_lsp').default_capabilities(),
+  snippetSupport = true
+}
+
+require('lspconfig').html.setup{
+  capabilities = require('cmp_nvim_lsp').default_capabilities(),
+  snippetSupport = true
+}
+
 local cmp = require('cmp')
 local cmp_select = { behavior = cmp.SelectBehavior.Select }
 -- this is the function that loads the extra snippets to luasnip
@@ -95,9 +106,11 @@ cmp.setup({
     mapping = cmp.mapping.preset.insert({
         ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
         ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
-        ['<C-y>'] = cmp.mapping.confirm({ select = true }),
+        ['<Tab>'] = cmp.mapping.confirm({ select = true }),
         ['<C-Space>'] = cmp.mapping.complete(),
+        ['<C-b>'] = cmp.mapping.scroll_docs(-4),
+        ['<C-f>'] = cmp.mapping.scroll_docs(4),
     }),
-    max_lines = 5
+    max_lines = 5,
 })
 
