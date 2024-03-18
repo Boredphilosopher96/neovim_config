@@ -61,6 +61,7 @@ return require('packer').startup(function(use)
     -- use("aserowy/tmux.nvim")
     use { "catppuccin/nvim", as = "catppuccin" }
     use("christoomey/vim-tmux-navigator")
+    use("rafamadriz/friendly-snippets")
     use {
         'VonHeikemen/lsp-zero.nvim',
         branch = 'v3.x',
@@ -75,6 +76,7 @@ return require('packer').startup(function(use)
             { 'hrsh7th/nvim-cmp' },
             { 'hrsh7th/cmp-nvim-lsp' },
             { 'L3MON4D3/LuaSnip' },
+            { "rafamadriz/friendly-snippets" },
             -- I just want to add cool icons
             { 'onsails/lspkind.nvim' },
         }
