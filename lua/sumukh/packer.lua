@@ -60,7 +60,7 @@ return require('packer').startup(function(use)
     use('numToStr/Comment.nvim')
     -- use("aserowy/tmux.nvim")
     use { "catppuccin/nvim", as = "catppuccin" }
-    use ({
+    use({
         "folke/tokyonight.nvim",
         as = "tokyonight",
         config = function()
@@ -98,6 +98,14 @@ return require('packer').startup(function(use)
             require("codeium").setup({
             })
         end
+    }
+
+    use {
+        "ThePrimeagen/refactoring.nvim",
+        requires = {
+            { "nvim-lua/plenary.nvim" },
+            { "nvim-treesitter/nvim-treesitter" }
+        }
     }
 
     if packer_bootstrap then
