@@ -53,7 +53,7 @@ return require('packer').startup(function(use)
     use("nvim-treesitter/nvim-treesitter", { run = ":TSUpdate" })
     use("nvim-treesitter/playground")
     use("theprimeagen/harpoon")
-    use("theprimeagen/refactoring.nvim")
+    -- use("theprimeagen/refactoring.nvim")
     use("mbbill/undotree")
     use("tpope/vim-fugitive")
     use("nvim-treesitter/nvim-treesitter-context")
@@ -107,6 +107,16 @@ return require('packer').startup(function(use)
             { "nvim-treesitter/nvim-treesitter" }
         }
     }
+
+    use({
+        "kylechui/nvim-surround",
+        tag = "*", -- Use for stability; omit to use `main` branch for the latest features
+        config = function()
+            require("nvim-surround").setup({
+                -- Configuration here, or leave empty to use defaults
+            })
+        end
+    })
 
     if packer_bootstrap then
         require("packer").sync()
